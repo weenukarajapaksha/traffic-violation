@@ -132,6 +132,6 @@ This project is for educational and research purposes.
 
 Author
 
-T.N.D. Weenuka Rajapaksha 
-Deparment Of Computer Science & Engineering
-University of Moratuwa
+T.N.D. Weenuka Rajapaksha,
+Deparment Of Computer Science & Engineering,
+University of Moratuwa.
