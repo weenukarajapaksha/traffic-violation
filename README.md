@@ -72,8 +72,7 @@ Setup Instructions
 
 Clone repository
 
-git clone https://github.com/weenukarajapaksha/helmet-violation-detection.git
-
+git clone https://github.com/weenukarajapaksha/traffic-violation.git
 cd helmet-violation-detection
 
 Install dependencies
