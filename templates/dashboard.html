@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traffic Violation Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>🚦 Traffic Violation Dashboard</h1>
+        <p>Smart violation detection system</p>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <h2>{{ violations|length }}</h2>
+            <p>Total Violations</p>
+        </div>
+
+        <div class="card">
+            <h2>No Helmet</h2>
+            <p>Main Violation Type</p>
+        </div>
+
+        <div class="card">
+            <h2>Live</h2>
+            <p>System Status</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">Violation Records</h2>
+
+    <form method="GET" class="search-bar">
+    <input type="text" name="plate" placeholder="🔍 Search plate number...">
+    <button type="submit">Search</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Plate Number</th>
+                <th>Violation Type</th>
+                <th>Time</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for v in violations %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ v.plate_number }}</td>
+                <td>{{ v.violation_type }}</td>
+                <td>{{ v.date_time }}</td>
+                <td>
+                    <a href="{{ url_for('static', filename=v.image_path) }}" target="_blank">
+                        <img src="{{ url_for('static', filename=v.image_path) }}" class="violation-img">
+                    </a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5" class="empty">No violations detected yet</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/download" class="download-btn">⬇ Download Report</a>
+
+</div>
+
+</body>
+</html>
